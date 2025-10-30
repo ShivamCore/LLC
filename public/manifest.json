@@ -1,0 +1,21 @@
+{
+  "name": "GlowGrowth Media - Medspa Marketing Agency",
+  "short_name": "GlowGrowth",
+  "description": "Premium medspa marketing agency delivering 10+ qualified appointments monthly through Meta Ads and proven growth systems.",
+  "theme_color": "#eab308",
+  "background_color": "#fdfcf9",
+  "display": "standalone",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
