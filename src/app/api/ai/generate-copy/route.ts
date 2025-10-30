@@ -14,28 +14,15 @@ const adCopyRequestSchema = z.object({
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const validatedData = adCopyRequestSchema.parse(body);
-
-    const aiService = new AIService();
-    const adCopy = await aiService.generateAdCopy(validatedData);
-
-    return NextResponse.json({
-      success: true,
-      data: adCopy
-    });
+    const validated = adCopyRequestSchema.parse(body);
+    const ai = new AIService();
+    const data = await ai.generateAdCopy(validated);
+    return NextResponse.json({ success: true, data });
   } catch (error) {
-    console.error('AI copy generation error:', error);
-    
     if (error instanceof z.ZodError) {
-      return NextResponse.json(
-        { error: 'Invalid request data', details: error.issues },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: 'Invalid request', details: error.issues }, { status: 400 });
     }
-
-    return NextResponse.json(
-      { error: 'Failed to generate ad copy' },
-      { status: 500 }
-    );
+    console.error('AI copy generation error:', error);
+    return NextResponse.json({ error: 'Failed to generate ad copy' }, { status: 500 });
   }
 }
