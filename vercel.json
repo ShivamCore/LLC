@@ -1,7 +1,7 @@
 {
   "version": 2,
   "buildCommand": "npm run vercel-build",
-  "installCommand": "npm ci || npm install --legacy-peer-deps",
+  "installCommand": "npm ci --include=dev || npm install --include=dev --legacy-peer-deps",
   "framework": "nextjs",
   "github": {
     "silent": true
